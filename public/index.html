@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="js/index.js"></script>
+  <title>Login - Smart Agri Monitor</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body class="bg-gradient-to-b from-sky-300 via-green-200 to-green-400 min-h-screen flex items-center justify-center relative">
+
+  <!-- Login Form -->
+  <div class="popup bg-[#5a7438]/95 border-4 border-[#3e5224] p-8 rounded-xl shadow-xl w-full max-w-md text-white">
+    <div class="flex flex-col items-center mb-6">
+      <img src="https://i.imgur.com/PJzS5QO.png" alt="Smart Agri Monitor" class="w-16 h-16 mb-2" />
+      <h2 class="text-xl font-bold text-center">🌿 Welcome to Smart Agri Monitor</h2>
+    </div>
+
+    <form id="login-form" class="space-y-4">
+      <div>
+        <label for="email" class="block mb-1 text-sm">Email</label>
+        <input type="email" id="email" name="email" required
+          class="w-full px-4 py-2 rounded bg-[#d1e8b3] text-black border border-green-800 focus:outline-none focus:ring-2 focus:ring-green-300"
+          placeholder="Enter email" />
+      </div>
+
+      <div>
+        <label for="password" class="block mb-1 text-sm">Password</label>
+        <input type="password" id="password" name="password" required
+          class="w-full px-4 py-2 rounded bg-[#d1e8b3] text-black border border-green-800 focus:outline-none focus:ring-2 focus:ring-green-300"
+          placeholder="Enter password" />
+        <div class="flex items-center mt-2">
+          <input type="checkbox" id="show-password" class="mr-2 accent-green-700">
+          <label for="show-password" class="text-sm">Show Password</label>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded transition duration-300">
+        Login
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm text-center">
+      Don’t have an account?
+      <a href="signup.html" class="underline hover:text-green-200">Sign up here</a>
+    </p>
+  </div>
+
+  <!-- Grass Animation -->
+  <div id="grass-container">
+    <div id="grass-back" class="grass-layer"></div>
+    <div id="grass-middle" class="grass-layer"></div>
+    <div id="grass-front" class="grass-layer"></div>
+  </div>
+
+ 
+
+  <!-- Show Password Toggle -->
+  <script>
+    const toggle = document.getElementById('show-password');
+    const pwdField = document.getElementById('password');
+    toggle.addEventListener('change', () => {
+      pwdField.type = toggle.checked ? 'text' : 'password';
+    });
+  </script>
+<script type="module" src="js/login.js"></script>
+</body>
+</html>

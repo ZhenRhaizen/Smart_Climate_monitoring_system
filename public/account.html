@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Account | Smart Agri Monitor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/main.js"></script>
+  <style>
+    .transition-transform { transition: transform 0.3s ease-in-out; }
+  </style>
+</head>
+
+<body class="bg-green-50 min-h-screen font-sans overflow-x-hidden">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md p-4 flex items-center justify-between z-30 relative">
+    <div class="flex items-center gap-4">
+      <button onclick="toggleSidebar()" class="text-green-700 font-bold text-xl">☰ Dashboard</button>
+      <h1 class="text-lg font-semibold text-green-700">Smart Agri Monitor</h1>
+    </div>
+    <a href="index.html" class="px-4 py-2 bg-green-700 text-white rounded hover:bg-green-800 font-semibold">Logout</a>
+  </header>
+
+  <!-- Backdrop -->
+  <div id="backdrop" onclick="closeSidebar()" 
+       class="fixed inset-0 bg-black bg-opacity-30 z-30 hidden transition-opacity duration-300"></div>
+
+  <!-- Sidebar -->
+  <aside id="sidebar"
+         class="fixed top-0 left-0 h-full w-64 bg-green-700 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-40">
+    <div class="p-6 border-b border-green-600">
+      <h2 class="text-2xl font-bold text-white">🌿 Dashboard</h2>
+    </div>
+    <nav class="flex flex-col p-4 space-y-4 text-green-100">
+      <a href="landing.html" class="flex items-center gap-2 hover:text-white">🏠 <span>Dashboard</span></a>
+      <a href="report.html" class="flex items-center gap-2 hover:text-white">📊 <span>Analytics Report</span></a>
+      <a href="settings.html" class="flex items-center gap-2 hover:text-white">⚙️ <span>Settings</span></a>
+      <a href="notifications.html" class="flex items-center gap-2 hover:text-white">🔔 <span>Notifications</span></a>
+      <a href="account.html" class="flex items-center gap-2 font-semibold text-white">👤 <span>Account</span></a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main id="main-content" class="transition-transform max-w-3xl mx-auto p-6 space-y-10">
+
+    <!-- User Info -->
+    <section class="bg-white shadow-md rounded-xl p-6">
+      <h2 class="text-xl font-bold text-green-700 mb-4">👤 User Information</h2>
+      <div class="flex flex-col md:flex-row items-center justify-between">
+        <div>
+          <p class="text-gray-700"><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+        </div>
+    </section>
+
+    <!-- Update Password Form -->
+    <section class="bg-white shadow-md rounded-xl p-6">
+      <h2 class="text-2xl font-bold text-green-700 mb-6 text-center">🔒 Update Password</h2>
+      <form id="passwordForm" class="space-y-5">
+
+        <!-- Old Password -->
+        <div>
+          <label for="oldPassword" class="block text-sm font-medium text-gray-700">Old Password</label>
+          <input id="oldPassword" type="password" required placeholder="Enter old password"
+            class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-700" />
+        </div>
+
+        <!-- New Password -->
+        <div>
+          <label for="newPassword" class="block text-sm font-medium text-gray-700">New Password</label>
+          <input id="newPassword" type="password" required placeholder="Enter new password"
+            class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-green-700" />
+        </div>
+
+        <!-- Show Password Checkbox -->
+        <div class="flex items-center space-x-2">
+          <input type="checkbox" id="showPasswords" onclick="toggleAllPasswords(this)" />
+          <label for="showPasswords" class="text-sm text-gray-700">Show Passwords</label>
+        </div>
+
+        <button type="submit" class="w-full py-2 bg-green-700 text-white rounded hover:bg-green-800 transition">Update Password</button>
+        <p id="alertBox" class="text-sm mt-4 text-center font-medium"></p>
+      </form>
+    </section>
+  </main>
+<!-- At the bottom of account.html -->
+<script type="module" src="js/auth.js"></script>
+
+</body>
+</html>

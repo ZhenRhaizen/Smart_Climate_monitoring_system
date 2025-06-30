@@ -1,0 +1,40 @@
+ body, html {
+      margin: 0; padding: 0; height: 100%; overflow-x: hidden;
+    }
+    .popup {
+      transform: rotateY(90deg);
+      animation: openBook 0.5s forwards ease-in-out;
+      z-index: 10;
+      position: relative;
+    }
+    @keyframes openBook {
+      from { transform: rotateY(90deg); opacity: 0; }
+      to { transform: rotateY(0deg); opacity: 1; }
+    }
+    #grass-container {
+      position: fixed; bottom: 0; left: 0; width: 100vw; height: 140px;
+      pointer-events: none; overflow: hidden; z-index: 0; user-select: none;
+    }
+    .grass-layer {
+      position: absolute; bottom: 0; height: 100%; width: 100%;
+      pointer-events: none;
+    }
+    .blade-front, .blade-middle, .blade-back {
+      position: absolute; bottom: 0; width: 10px;
+      background: linear-gradient(to top, #356e0e 0%, #8bc34a 100%);
+      border-radius: 5px 5px 0 0; transform-origin: bottom center;
+      animation-name: sway; animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    .blade-middle {
+      background: linear-gradient(to top, #2a5c0b 0%, #7cb342 100%);
+      width: 8px; border-radius: 4px 4px 0 0;
+    }
+    .blade-back {
+      background: linear-gradient(to top, #23490a 0%, #689f38 100%);
+      width: 6px; border-radius: 3px 3px 0 0;
+    }
+    @keyframes sway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(6deg); }
+    }

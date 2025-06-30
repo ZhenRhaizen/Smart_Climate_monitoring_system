@@ -1,0 +1,25 @@
+[debug] [2025-06-21T02:22:27.632Z] ----------------------------------------------------------------------
+[debug] [2025-06-21T02:22:27.638Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\admin\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2025-06-21T02:22:27.639Z] CLI Version:   14.5.0
+[debug] [2025-06-21T02:22:27.640Z] Platform:      win32
+[debug] [2025-06-21T02:22:27.640Z] Node Version:  v22.15.1
+[debug] [2025-06-21T02:22:27.641Z] Time:          Sat Jun 21 2025 10:22:27 GMT+0800 (Singapore Standard Time)
+[debug] [2025-06-21T02:22:27.641Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-21T02:22:28.239Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-21T02:22:28.240Z] > authorizing via signed-in user (zhenrhaizenaguaras0@gmail.com)
+[debug] [2025-06-21T02:22:28.241Z] [iam] checking project smartclimatemonitorsystem for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2025-06-21T02:22:28.244Z] Checked if tokens are valid: true, expires at: 1750475575372
+[debug] [2025-06-21T02:22:28.244Z] Checked if tokens are valid: true, expires at: 1750475575372
+[debug] [2025-06-21T02:22:28.246Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions [none]
+[debug] [2025-06-21T02:22:28.247Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions x-goog-quota-user=projects/smartclimatemonitorsystem
+[debug] [2025-06-21T02:22:28.247Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2025-06-21T02:22:28.344Z] *** [apiv2] error from fetch(https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions, {"headers":{},"method":"POST","body":"{\"permissions\":[\"firebase.projects.get\",\"firebasehosting.sites.update\"]}"}): FetchError: request to https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions failed, reason: getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
+[debug] [2025-06-21T02:22:28.345Z] [iam] error while checking permissions, command may fail: Failed to make request to https://cloudresourcemanager.googleapis.com/v1/projects/smartclimatemonitorsystem:testIamPermissions
+[debug] [2025-06-21T02:22:28.346Z] Checked if tokens are valid: true, expires at: 1750475575372
+[debug] [2025-06-21T02:22:28.346Z] Checked if tokens are valid: true, expires at: 1750475575372
+[debug] [2025-06-21T02:22:28.347Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smartclimatemonitorsystem [none]
+[debug] [2025-06-21T02:22:28.368Z] *** [apiv2] error from fetch(https://firebase.googleapis.com/v1beta1/projects/smartclimatemonitorsystem, {"headers":{},"method":"GET","signal":{}}): FetchError: request to https://firebase.googleapis.com/v1beta1/projects/smartclimatemonitorsystem failed, reason: getaddrinfo ENOTFOUND firebase.googleapis.com
+[debug] [2025-06-21T02:22:28.369Z] Failed to make request to https://firebase.googleapis.com/v1beta1/projects/smartclimatemonitorsystem (original: request to https://firebase.googleapis.com/v1beta1/projects/smartclimatemonitorsystem failed, reason: getaddrinfo ENOTFOUND firebase.googleapis.com)
+[error] 
+[error] Error: Assertion failed: resolving hosting target of a site with no site name or target name. This should have caused an error earlier

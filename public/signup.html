@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CREATE ACCOUNT - Smart Agri Monitor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/signup.css" />
+</head>
+
+<body class="bg-gradient-to-b from-sky-300 via-green-200 to-green-400 min-h-screen flex items-center justify-center relative">
+
+  <div class="popup bg-[#5a7438]/95 border-4 border-[#3e5224] p-8 rounded-xl shadow-xl w-full max-w-md text-white">
+    <div class="flex flex-col items-center mb-6">
+      <img src="https://i.imgur.com/PJzS5QO.png" alt="Smart Agri Monitor" class="w-16 h-16 mb-2" />
+      <h2 class="text-xl font-bold text-center">CREATE ACCOUNT</h2>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <form id="signup-form" class="space-y-4">
+      <div>
+        <label for="username" class="block mb-1 text-sm">Username</label>
+        <input id="username" name="username" type="text" required placeholder="Enter Username"
+          class="w-full px-4 py-2 rounded bg-[#d1e8b3] text-black border border-green-800 focus:outline-none focus:ring-2 focus:ring-green-300" />
+      </div>
+      <div>
+        <label for="email" class="block mb-1 text-sm">Email</label>
+        <input id="email" name="email" type="email" required placeholder="Enter Email"
+          class="w-full px-4 py-2 rounded bg-[#d1e8b3] text-black border border-green-800 focus:outline-none focus:ring-2 focus:ring-green-300" />
+      </div>
+      <div>
+        <label for="password" class="block mb-1 text-sm">Password</label>
+        <input id="password" name="password" type="password" required minlength="6" placeholder="Enter Password"
+          class="w-full px-4 py-2 rounded bg-[#d1e8b3] text-black border border-green-800 focus:outline-none focus:ring-2 focus:ring-green-300" />
+        <div class="flex items-center mt-2">
+          <input id="togglePassword" type="checkbox" class="mr-2" />
+          <label for="togglePassword" class="text-sm text-white">Show Password</label>
+        </div>
+      </div>
+      <button type="submit"
+        class="w-full bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded transition duration-300">
+        Sign Up
+      </button>
+    </form>
+
+    <p class="mt-4 text-sm text-center">
+      Already have an account?
+      <a href="index.html" class="underline hover:text-green-200">Login here</a>
+    </p>
+  </div>
+
+  <!-- GRASS DECORATION -->
+  <div id="grass-container">
+    <div id="grass-back" class="grass-layer"></div>
+    <div id="grass-middle" class="grass-layer"></div>
+    <div id="grass-front" class="grass-layer"></div>
+  </div>
+
+  <!-- Grass Animation JavaScript -->
+  <script>
+    const bladeSpacing = 20;
+    const viewportWidth = window.innerWidth;
+    const bladeCount = Math.ceil(viewportWidth / bladeSpacing) + 2;
+
+    const grassFront = document.getElementById('grass-front');
+    const grassMiddle = document.getElementById('grass-middle');
+    const grassBack = document.getElementById('grass-back');
+
+    function createBlades(container, className, offset, minHeight, maxHeight, minDur, maxDur) {
+      for (let i = 0; i < bladeCount; i++) {
+        const blade = document.createElement('div');
+        blade.className = className;
+        blade.style.left = (i * bladeSpacing + offset) + 'px';
+        blade.style.height = (minHeight + Math.random() * (maxHeight - minHeight)) + 'px';
+        blade.style.animationDuration = (minDur + Math.random() * (maxDur - minDur)) + 's';
+        blade.style.animationDelay = (Math.random() * 5) + 's';
+        container.appendChild(blade);
+      }
+    }
+
+    grassFront.innerHTML = '';
+    grassMiddle.innerHTML = '';
+    grassBack.innerHTML = '';
+
+    createBlades(grassFront, 'blade-front', 0, 40, 80, 3, 6);
+    createBlades(grassMiddle, 'blade-middle', 10, 30, 60, 4, 8);
+    createBlades(grassBack, 'blade-back', 5, 20, 40, 5, 10);
+  </script>
+
+  <!-- Firebase + Auth Logic -->
+  <script type="module" src="js/signup.js"></script>
+</body>
+</html>
